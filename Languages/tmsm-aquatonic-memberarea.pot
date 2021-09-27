@@ -1,0 +1,157 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TMSM Aquatonic Member Area\n"
+"POT-Creation-Date: 2021-09-27 16:47+0200\n"
+"PO-Revision-Date: 2014-10-24 21:08+0100\n"
+"Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;"
+"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;_ex:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: languages\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
+
+#: Admin/Admin.php:107 Frontend/Frontend.php:102
+msgid "Style could not be registered: "
+msgstr ""
+
+#: Admin/Admin.php:146 Frontend/Frontend.php:135
+#: Frontend/Frontend.php:152
+msgid "Script could not be registered: "
+msgstr ""
+
+#: Admin/NetworkSettings.php:141
+msgid "Network General"
+msgstr ""
+
+#: Admin/NetworkSettings.php:149 Admin/Settings.php:244
+msgid "Debug"
+msgstr ""
+
+#: Admin/NetworkSettings.php:178 Admin/Settings.php:181
+msgid "Settings saved."
+msgstr ""
+
+#: Admin/NetworkSettings.php:188
+msgid "Tmsm Aquatonic Memberarea Network Options"
+msgstr ""
+
+#: Admin/NetworkSettings.php:193 Admin/Settings.php:196
+#: Admin/Settings.php:236
+msgid "General"
+msgstr ""
+
+#: Admin/NetworkSettings.php:194
+msgid "Examples"
+msgstr ""
+
+#: Admin/NetworkSettings.php:228 Frontend/ContactForm.php:172
+msgid "Failed security check."
+msgstr ""
+
+#: Admin/NetworkSettings.php:295
+msgid "Network General Options."
+msgstr ""
+
+#: Admin/Settings.php:191
+msgid "Tmsm Aquatonic Memberarea Options"
+msgstr ""
+
+#: Admin/Settings.php:197 Admin/Settings.php:343
+msgid "Input Examples"
+msgstr ""
+
+#: Admin/Settings.php:312
+msgid "General options."
+msgstr ""
+
+#: Admin/Settings.php:345
+msgid "Input Element"
+msgstr ""
+
+#: Admin/Settings.php:347
+msgid "Textarea Element"
+msgstr ""
+
+#: Admin/Settings.php:349
+msgid "Checkbox Element"
+msgstr ""
+
+#: Admin/Settings.php:351
+msgid "Radio Button Elements"
+msgstr ""
+
+#: Admin/Settings.php:353
+msgid "Select Element"
+msgstr ""
+
+#: Admin/Settings.php:412
+msgid "Provides examples of the five basic element types."
+msgstr ""
+
+#: Admin/Settings.php:460
+msgid "Select a time option..."
+msgstr ""
+
+#: Admin/Settings.php:461
+msgid "Never"
+msgstr ""
+
+#: Admin/Settings.php:462
+msgid "Sometimes"
+msgstr ""
+
+#: Admin/Settings.php:463
+msgid "Always"
+msgstr ""
+
+#: Frontend/ContactForm.php:128
+msgid "Capizalized subject (value is reveived from a PHP function)"
+msgstr ""
+
+#: Frontend/ContactForm.php:133
+msgid "E-mail"
+msgstr ""
+
+#: Frontend/ContactForm.php:137
+msgid "Subject"
+msgstr ""
+
+#: Frontend/ContactForm.php:141
+msgid "Body"
+msgstr ""
+
+#: Frontend/ContactForm.php:144
+msgid "Submit"
+msgstr ""
+
+#: Includes/ResaCours_API.php:122 Includes/ResaCours_API.php:123
+msgid "Method is not configured"
+msgstr ""
+
+#: Includes/ResaCours_API.php:150 Includes/ResaCours_API.php:151
+msgid "Web service is not available"
+msgstr ""
+
+#: Includes/ResaCours_API.php:156 Includes/ResaCours_API.php:157
+#, php-format
+msgid "Error: Delivery URL returned response code: %s"
+msgstr ""
+
+#: Includes/ResaCours_API.php:175 Includes/ResaCours_API.php:176
+#, php-format
+msgid "Error code %s"
+msgstr ""
+
+#: Includes/Updater.php:78
+msgid "Update routine not callable: "
+msgstr ""

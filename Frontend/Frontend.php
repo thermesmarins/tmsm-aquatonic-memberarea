@@ -151,5 +151,15 @@ class Frontend
         {
             exit(esc_html__('Script could not be registered: ', 'tmsm-aquatonic-memberarea') . $contactFormScriptUrl);
         }
+
+        /**
+         * Register the Login Form script which is used in the Contact Form shortcode.
+         */
+        $loginFormScripFileName = ($this->settings->getDebug() === true) ? 'tmsm-aquatonic-memberarea-login-form.js' : 'tmsm-aquatonic-memberarea-login-form.min.js';
+        $loginFormScriptUrl = plugin_dir_url(__FILE__) . 'js/' . $loginFormScripFileName;
+        if (wp_register_script($this->pluginSlug . 'login-form', $loginFormScriptUrl, array('jquery'), $this->version, false) === false)
+        {
+            exit(esc_html__('Script could not be registered: ', 'tmsm-aquatonic-memberarea') . $loginFormScriptUrl);
+        }
     }
 }

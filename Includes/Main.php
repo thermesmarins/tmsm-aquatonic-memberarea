@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TmsmAquatonicMemberarea\Includes;
 
+use TmsmAquatonicMemberarea\Frontend\LoginForm;
 use TmsmAquatonicMemberarea\Includes\I18n;
 use TmsmAquatonicMemberarea\Admin\Admin;
 use TmsmAquatonicMemberarea\Admin\Updater;
@@ -83,6 +84,10 @@ class Main
         // Contact form and shortcode template. Insert [add_form] shortcode to a page to see the result.
         $contactForm = new ContactForm($this->pluginSlug);
         $contactForm->initializeHooks($isAdmin);
+
+        // Contact form and shortcode template. Insert [add_form] shortcode to a page to see the result.
+        $loginForm = new LoginForm($this->pluginSlug);
+	    $loginForm->initializeHooks($isAdmin);
 
         /**
          * Network Admin objects - Register all of the hooks related to the network admin area functionality of the plugin.

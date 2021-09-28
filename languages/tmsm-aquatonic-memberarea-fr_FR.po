@@ -1,0 +1,995 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TMSM Aquatonic Member Area\n"
+"POT-Creation-Date: 2021-09-27 16:48+0200\n"
+"PO-Revision-Date: 2021-09-27 16:48+0200\n"
+"Last-Translator: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language-Team: Nicolas Mollet <nico.mollet@gmail.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x:1,2c;esc_attr__;esc_attr_e;"
+"esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: languages\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
+
+#: Admin/Admin.php:107 Frontend/Frontend.php:102
+msgid "Style could not be registered: "
+msgstr ""
+
+#: Admin/Admin.php:146 Frontend/Frontend.php:135 Frontend/Frontend.php:152
+msgid "Script could not be registered: "
+msgstr ""
+
+#: Admin/NetworkSettings.php:141
+msgid "Network General"
+msgstr ""
+
+#: Admin/NetworkSettings.php:149 Admin/Settings.php:244
+msgid "Debug"
+msgstr ""
+
+#: Admin/NetworkSettings.php:178 Admin/Settings.php:181
+#, fuzzy
+#| msgid "Settings"
+msgid "Settings saved."
+msgstr "Réglages"
+
+#: Admin/NetworkSettings.php:188
+msgid "Tmsm Aquatonic Memberarea Network Options"
+msgstr ""
+
+#: Admin/NetworkSettings.php:193 Admin/Settings.php:196 Admin/Settings.php:236
+msgid "General"
+msgstr ""
+
+#: Admin/NetworkSettings.php:194
+msgid "Examples"
+msgstr ""
+
+#: Admin/NetworkSettings.php:228 Frontend/ContactForm.php:172
+msgid "Failed security check."
+msgstr ""
+
+#: Admin/NetworkSettings.php:295
+msgid "Network General Options."
+msgstr ""
+
+#: Admin/Settings.php:191
+msgid "Tmsm Aquatonic Memberarea Options"
+msgstr ""
+
+#: Admin/Settings.php:197 Admin/Settings.php:343
+msgid "Input Examples"
+msgstr ""
+
+#: Admin/Settings.php:312
+#, fuzzy
+#| msgid "Save options"
+msgid "General options."
+msgstr "Enregistrer les options"
+
+#: Admin/Settings.php:345
+msgid "Input Element"
+msgstr ""
+
+#: Admin/Settings.php:347
+msgid "Textarea Element"
+msgstr ""
+
+#: Admin/Settings.php:349
+msgid "Checkbox Element"
+msgstr ""
+
+#: Admin/Settings.php:351
+msgid "Radio Button Elements"
+msgstr ""
+
+#: Admin/Settings.php:353
+#, fuzzy
+#| msgid "Select %s"
+msgid "Select Element"
+msgstr "Choisir %s"
+
+#: Admin/Settings.php:412
+msgid "Provides examples of the five basic element types."
+msgstr ""
+
+#: Admin/Settings.php:460
+msgid "Select a time option..."
+msgstr ""
+
+#: Admin/Settings.php:461
+msgid "Never"
+msgstr ""
+
+#: Admin/Settings.php:462
+msgid "Sometimes"
+msgstr ""
+
+#: Admin/Settings.php:463
+msgid "Always"
+msgstr ""
+
+#: Frontend/ContactForm.php:128
+msgid "Capizalized subject (value is reveived from a PHP function)"
+msgstr ""
+
+#: Frontend/ContactForm.php:133
+#, fuzzy
+#| msgid "Email"
+msgid "E-mail"
+msgstr "Email"
+
+#: Frontend/ContactForm.php:137
+msgid "Subject"
+msgstr ""
+
+#: Frontend/ContactForm.php:141
+msgid "Body"
+msgstr ""
+
+#: Frontend/ContactForm.php:144
+msgid "Submit"
+msgstr ""
+
+#: Includes/ResaCours_API.php:122 Includes/ResaCours_API.php:123
+#, fuzzy
+#| msgid "Cron Schedule is not fired"
+msgid "Method is not configured"
+msgstr "La planification du cron n’est pas exécutée"
+
+#: Includes/ResaCours_API.php:150 Includes/ResaCours_API.php:151
+msgid "Web service is not available"
+msgstr "Le service web n’est pas disponible"
+
+#: Includes/ResaCours_API.php:156 Includes/ResaCours_API.php:157
+#, php-format
+msgid "Error: Delivery URL returned response code: %s"
+msgstr "Erreur : URL de livraison a retourné le code : %s"
+
+#: Includes/ResaCours_API.php:175 Includes/ResaCours_API.php:176
+#, fuzzy, php-format
+#| msgid "Error code %s: %s"
+msgid "Error code %s"
+msgstr "Code erreur %s : %s"
+
+#: Includes/Updater.php:78
+msgid "Update routine not callable: "
+msgstr ""
+
+#~ msgid "Are you sure you want to cancel this booking?"
+#~ msgstr ""
+#~ "Suppression de cette réservation ? Elle sera annulée définitivement."
+
+#~ msgid "Aquatonic Course"
+#~ msgstr "Parcours Aquatonic"
+
+#~ msgid "Slot Size"
+#~ msgstr "Taille des créneaux"
+
+#~ msgid "Number of slots per hour"
+#~ msgstr "Nombre de créneaux par heure"
+
+#~ msgid "Course Average"
+#~ msgstr "Moyenne de la durée d’un parcours"
+
+#~ msgid "Number of minutes of an average course"
+#~ msgstr "Nombre de minutes moyen d’un parcours"
+
+#~ msgid "Lesson Considered Before"
+#~ msgstr "Temps considéré avant un cours"
+
+#~ msgid ""
+#~ "Number of minutes before a lesson, the person is considered in the course"
+#~ msgstr ""
+#~ "Nombre de minutes avant un cours pour lequel on considère le participant "
+#~ "dans le parcours"
+
+#~ msgid "Lesson Considered After"
+#~ msgstr "Temps considéré après un cours"
+
+#~ msgid ""
+#~ "Number of minutes after a lesson, the person is considered in the course"
+#~ msgstr ""
+#~ "Nombre de minutes après un cours pour lequel on considère le participant "
+#~ "dans le parcours"
+
+#~ msgid "Blocked Before Date"
+#~ msgstr "Réservations bloquées avant la date"
+
+#~ msgid "Date when reservations can start. Format: YYYY-MM-DD"
+#~ msgstr ""
+#~ "Date à partir de laquelle les réservations ne sont pas possibles. "
+#~ "Format : AAAA-MM-JJ"
+
+#~ msgid "Booking Possible Before"
+#~ msgstr "Réservation possible avant"
+
+#~ msgid "Number of hours before the possibility to book"
+#~ msgstr "Nombre d’heures avant la possibilité de réserver"
+
+#~ msgid "Booking Possible After"
+#~ msgstr "Réservation possible après"
+
+#~ msgid "Number of hours after the possibility to book"
+#~ msgstr "Nombre d’heures après la date courante"
+
+#~ msgid "Booking Allotments for Course"
+#~ msgstr "Allotement pour les réservations de parcours"
+
+#~ msgid ""
+#~ "Format: Day Number=09:00-14:00,15:30-17:30 serapated by a line break. Day "
+#~ "Number is: 0 for Sunday, 1 for Monday, etc. Also for special dates: "
+#~ "Date=09:00-21:00=0 where Date is in format YYYY-MM-DD."
+#~ msgstr ""
+#~ "Format : Nombre du jour=09:00-14:00,15:30-17:30=65 séparé par des sauts "
+#~ "de ligne. Nombre du jour est : 0 pour dimanche, 1 pour lundi, etc. Aussi "
+#~ "pour les jours spéciaux : Date=09:00-21:00=0 où Date est au format AAAA-"
+#~ "MM-JJ."
+
+#~ msgid "Allotments for Treatment+Course"
+#~ msgstr "Allotement pour les soins+parcours"
+
+#~ msgid "None"
+#~ msgstr "Aucun"
+
+#~ msgid "Gravity Form for adding a booking"
+#~ msgstr "Formulaire Gravity Forms pour la réservation"
+
+#~ msgid "Page for adding a booking"
+#~ msgstr "Page pour l’ajout de réservation"
+
+#~ msgid "Gravity Form for cancelling a booking"
+#~ msgstr "Formulaire Gravity Forms pour l’annulation"
+
+#~ msgid "Page for cancelling a booking"
+#~ msgstr "Page pour l’annulation de réservation"
+
+#~ msgid "Dialog Insight Key ID"
+#~ msgstr "ID de clé Dialog Insight"
+
+#~ msgid "Dialog Insight API Key"
+#~ msgstr "Clé d’API Dialog Insight"
+
+#~ msgid "Dialog Insight Project ID"
+#~ msgstr "ID de projet Dialog Insight"
+
+#~ msgid "Dialog Insight Relational Table ID"
+#~ msgstr "ID de table relationnelle Dialog Insight"
+
+#~ msgid "Relational Table for Course Bookings"
+#~ msgstr "Table relationnelle pour les réservations de parcours"
+
+#~ msgid "Dialog Insight Source Code"
+#~ msgstr "Code de source Dialog Insight"
+
+#~ msgid "Source Code in Dialog Insight"
+#~ msgstr "Code de source Dialog Insight (établissement)"
+
+#~ msgid "Aquos Endpoint for Adding Contact"
+#~ msgstr "Endpoint d’Aquos pour ajouter un contact"
+
+#~ msgid "URL to endpoint"
+#~ msgstr "URL du endpoint"
+
+#~ msgid "Aquos Endpoint for Lessons"
+#~ msgstr "Endpoint d’Aquos pour les cours"
+
+#~ msgid "Aquos Site ID"
+#~ msgstr "ID de site Aquos"
+
+#~ msgid "Aquos Secret"
+#~ msgstr "Secret Aquos"
+
+#~ msgid "Lessons Date"
+#~ msgstr "Date de cours"
+
+#~ msgid "Date Format: Ymd. Example: 20210428"
+#~ msgstr "Format de date : JMD. Exemple : 20210428"
+
+#~ msgid "Real Time Memberarea"
+#~ msgstr "Affluence en direct"
+
+#~ msgid "Times"
+#~ msgstr "Créneaux horaires"
+
+#~ msgid "Form"
+#~ msgstr "Formulaire"
+
+#~ msgid "Dialog Insight"
+#~ msgstr "Dialog Insight"
+
+#~ msgid "Aquos"
+#~ msgstr "Aquos"
+
+#~ msgid "Tests"
+#~ msgstr "Tests"
+
+#~ msgid "The form was not found"
+#~ msgstr "Le formulaire n’a pas été trouvé"
+
+#~ msgid "The Dialog Insight feed is missing"
+#~ msgstr "Le flux Dialog Insight est manquant"
+
+#~ msgid "The form layout needs the `tmsm-aquatonic-course-form-add` class"
+#~ msgstr ""
+#~ "La mise en page du formulaire nécessite la classe `tmsm-aquatonic-course-"
+#~ "form-add`"
+
+#~ msgid "The name field needs the `tmsm-aquatonic-course-name` class"
+#~ msgstr "Le champ nom nécessite la class `tmsm-aquatonic-course-name`"
+
+#~ msgid "The name field needs the `tmsm-aquatonic-course-email` class"
+#~ msgstr "Le champ email nécessite la class `tmsm-aquatonic-course-email`"
+
+#~ msgid ""
+#~ "The birthdate field needs the `tmsm-aquatonic-course-birthdate` class"
+#~ msgstr ""
+#~ "Le champ date de naissance nécessite la classe `tmsm-aquatonic-course-"
+#~ "birthdate`"
+
+#~ msgid "The phone field needs the `tmsm-aquatonic-course-phone` class"
+#~ msgstr ""
+#~ "Le champ téléphone nécessite la classe `tmsm-aquatonic-course-phone`"
+
+#~ msgid ""
+#~ "The participants field needs the `tmsm-aquatonic-course-participants` "
+#~ "class"
+#~ msgstr ""
+#~ "Le champ participants nécessite la classe `tmsm-aquatonic-course-"
+#~ "participants`"
+
+#~ msgid "The times field needs the `tmsm-aquatonic-course-times` class"
+#~ msgstr ""
+#~ "Le champ Date+Heures nécessite la classe `tmsm-aquatonic-course-times`"
+
+#~ msgid "The times field needs the `tmsm-aquatonic-course-summary` class"
+#~ msgstr "Le champ résumé nécessite la classe `tmsm-aquatonic-course-summary`"
+
+#~ msgid "The title field needs the `tmsm-aquatonic-course-title` class"
+#~ msgstr "Le champ Civilité nécessite la classe `tmsm-aquatonic-course-title`"
+
+#, php-format
+#~ msgid "Gravity Forms Add Form setup has failed: %s"
+#~ msgstr "La configuration du formulaire d’ajout Gravity Forms a échoué : %s"
+
+#~ msgid "The form layout needs the `tmsm-aquatonic-course-form-cancel` class"
+#~ msgstr ""
+#~ "La mise en page du formulaire nécessite la classe `tmsm-aquatonic-course-"
+#~ "form-cancel`"
+
+#, php-format
+#~ msgid "Gravity Forms Cancel Form setup has failed: %s"
+#~ msgstr ""
+#~ "La configuration du formulaire d’annulation Gravity Forms a échoué : %s"
+
+#~ msgid "Gravity Forms all need to be defined"
+#~ msgstr "Tous les formulaires Gravity Forms doivent être définis"
+
+#~ msgid "Pages all need to be defined"
+#~ msgstr "Les pages doivent êtres définies"
+
+#~ msgid "Timeslots fields all need to be defined"
+#~ msgstr ""
+#~ "Les champs Allotement pour les réservations de parcours, Réservation "
+#~ "possible avant, et Réservation possible après doivent être remplis"
+
+#~ msgid "Dialog Insight fields all need to be defined"
+#~ msgstr "Les champs Dialog Insight doivent être définis"
+
+#~ msgid "Booking not found"
+#~ msgstr "La réservation n’a pas été trouvée"
+
+#~ msgid "Participant is already arrived"
+#~ msgstr "Le participant est déjà arrivé"
+
+#~ msgid "Booking was cancelled"
+#~ msgstr "La réservation a été annulée"
+
+#~ msgid "Booking date is passed or in the future"
+#~ msgstr "La date de la réservation est passée ou dans le futur"
+
+#, php-format
+#~ msgid "Booking valid for %s %s at %s for %s participant(s)"
+#~ msgstr "Réservation valide pour %s %s le %s pour %s participant(s)"
+
+#, php-format
+#~ msgid "Cancelled booking for %s %s at %s"
+#~ msgstr "Annulation de la réservation pour %s %s le %s"
+
+#, php-format
+#~ msgid "%s at %s"
+#~ msgstr "%s à %s"
+
+#~ msgid "Active"
+#~ msgstr "Active"
+
+#~ msgid "Mark as active"
+#~ msgstr "Marquer comme active"
+
+#~ msgid "Arrived"
+#~ msgstr "Arrivé"
+
+#~ msgid "Cancelled"
+#~ msgstr "Annulé"
+
+#~ msgid "Mark as cancelled"
+#~ msgstr "Annuler"
+
+#~ msgid "No-show"
+#~ msgstr "No-show"
+
+#~ msgid "Mark as no-show"
+#~ msgstr "Marquer comme no-show"
+
+#~ msgid "Capacity"
+#~ msgstr "Capacité"
+
+#~ msgid "Registered Lesson Members"
+#~ msgstr "Personnes inscrites aux cours"
+
+#~ msgid "(Test Mode)"
+#~ msgstr "(Mode test)"
+
+#~ msgid "Ending Lesson Members"
+#~ msgstr "Cours qui terminent"
+
+#~ msgid "Starting Lesson Members"
+#~ msgstr "Cours qui débutent"
+
+#~ msgid "Treatment+Course Allotment"
+#~ msgstr "Allotement pour les soins+parcours"
+
+#~ msgid "Booking Allotments"
+#~ msgstr "Allotement pour la réservation"
+
+#~ msgid "Ongoing Bookings"
+#~ msgstr "Réservations en cours"
+
+#~ msgid "Ending Bookings"
+#~ msgstr "Réservations qui terminent"
+
+#~ msgid "Starting Bookings"
+#~ msgstr "Réservations qui débutent"
+
+#~ msgid "Free"
+#~ msgstr "Libre"
+
+#~ msgid "Can Start"
+#~ msgstr "Peut commencer (sans réservation)"
+
+#~ msgid "(Minimum Value of Free Row)"
+#~ msgstr "(Valeur minimum de la ligne « Libre »)"
+
+#~ msgid "Real Time"
+#~ msgstr "Temps réél"
+
+#~ msgid "Real time data is missing!"
+#~ msgstr "Les données temps réel sont manquantes"
+
+#, php-format
+#~ msgid "Error message: %s"
+#~ msgstr "Code erreur : %s"
+
+#, php-format
+#~ msgid "Aquos reached, with error message: %s"
+#~ msgstr "Aquos atteint, avec le message d’erreur : %s"
+
+#~ msgid "Dashboard"
+#~ msgstr "Tableau de bord"
+
+#~ msgid "Bookings"
+#~ msgstr "Réservations"
+
+#~ msgid "Stats"
+#~ msgstr "Stats"
+
+#, php-format
+#~ msgid "Dialog Insight API connection failed with error code: %s"
+#~ msgstr "La connexion Dialog Insight a échoué avec le code erreur : %s"
+
+#~ msgid "Booking Status"
+#~ msgstr "Statut de réservation"
+
+#~ msgid "Status"
+#~ msgstr "État de réservation"
+
+#~ msgid "Number of bookings"
+#~ msgstr "Nombre de réservations"
+
+#~ msgid "No-Show"
+#~ msgstr "No-Show"
+
+#~ msgid "Customers with most no-shows (more than 4)"
+#~ msgstr "Clients avec le plus de no-show (au moins 4)"
+
+#~ msgid "Past Bookings by date and by type"
+#~ msgstr "Réservations passées par date et par type"
+
+#~ msgid "Date"
+#~ msgstr "Date"
+
+#~ msgid "Number"
+#~ msgstr "Nombre"
+
+#~ msgid "Future Participants by date"
+#~ msgstr "Participants futurs par date"
+
+#~ msgid "Participants"
+#~ msgstr "Participants"
+
+#, php-format
+#~ msgid "Next Refresh at %s in %s"
+#~ msgstr "Prochaine actualisation à %s dans %s"
+
+#~ msgid "Force refresh memberarea"
+#~ msgstr "Forcer l’actualisation"
+
+#~ msgid "Aquatonic Memberarea is not available"
+#~ msgstr "Le cron TMSM Aquatonic Memberarea n’est pas disponible"
+
+#~ msgid "Filter"
+#~ msgstr "Filtrer"
+
+#~ msgid "Full Name"
+#~ msgstr "Nom complet"
+
+#~ msgid "No-Show Count"
+#~ msgstr "Nombre de no-show"
+
+#~ msgid "Date Created"
+#~ msgstr "Date de création"
+
+#~ msgid "Course Start"
+#~ msgstr "Début"
+
+#~ msgid "Actions"
+#~ msgstr "Actions"
+
+#~ msgid "All"
+#~ msgstr "Tout"
+
+#~ msgid "Active + No-Show"
+#~ msgstr "Actives + No-Show"
+
+#~ msgid "Name"
+#~ msgstr "Nom"
+
+#~ msgid "Course Date"
+#~ msgstr "Date du parcours"
+
+#~ msgid "Creation Date"
+#~ msgstr "Date de création"
+
+#~ msgid "Specify the data type to sanitize."
+#~ msgstr "Spécifier de type de données à normaliser."
+
+#~ msgid "Forgot data type"
+#~ msgstr "Type de données oublié"
+
+#~ msgid "Every 5 minutes"
+#~ msgstr "Toutes les 5 minutes"
+
+#~ msgctxt "birthdate date format for datepicker"
+#~ msgid "mm/dd/yyyy"
+#~ msgstr "dd/mm/yyyy"
+
+#~ msgctxt "birthdate date format for humans"
+#~ msgid "mm/dd/yyyy"
+#~ msgstr "jj/mm/aaaa"
+
+#~ msgid "Loading"
+#~ msgstr "Chargement"
+
+#~ msgid "No time slot found"
+#~ msgstr "Aucune disponibilité"
+
+#~ msgid "Closed"
+#~ msgstr "Fermé"
+
+#~ msgid "Pick a time slot"
+#~ msgstr "Choisir"
+
+#, php-format
+#~ msgid "Course for %s participant(s) on %s at %s:%s"
+#~ msgstr "Parcours pour %s participant(s) le %s à %sh%s"
+
+#~ msgid "MMMM DD, YYYY"
+#~ msgstr "dddd DD MMMM YYYY"
+
+#~ msgid "Change time"
+#~ msgstr "Changer l’heure"
+
+#~ msgid ""
+#~ "{place_name}<br>Aquatonic Course on {booking_date} at "
+#~ "{booking_hourminutes}<br>{booking_participants} participant(s)"
+#~ msgstr ""
+#~ "{place_name}<br>Parcours Aquatonic le {booking_date} à "
+#~ "{booking_hourminutes}<br>{booking_participants} participant(s)"
+
+#~ msgid "If you can't see the barcode, please access this page"
+#~ msgstr ""
+#~ "Si vous ne pouvez pas visualiser ce code barre, accédez à cette page."
+
+#~ msgid "Barcode missing"
+#~ msgstr "Code barre manquant"
+
+#~ msgid "This booking was already cancelled"
+#~ msgstr "Cette réservation a déjà été annulée"
+
+#~ msgid "Do you want to cancel the following booking?"
+#~ msgstr ""
+#~ "En cas d’empêchement, nous vous remercions d’annuler cette réservation."
+
+#~ msgid "This booking was not found"
+#~ msgstr "Cette réservation n’a pas été trouvée"
+
+#~ msgid "The booking token was not found"
+#~ msgstr "Ce token de réservation n’a pas été trouvé"
+
+#~ msgid "Year of birth is invalid"
+#~ msgstr "L’année de naissance n’est pas valide"
+
+#, php-format
+#~ msgid "Aquatonic Course on %s for %d participants"
+#~ msgstr "Parcours Aquatonic le %s pour %d participant(s)"
+
+#~ msgid "Token security is not valid"
+#~ msgstr "Le jeton de sécurité n’est pas valide"
+
+#~ msgid "Ajax referer is not valid"
+#~ msgstr "Le référant ajax n’est pas valide"
+
+#~ msgid "No first slot available to calculate all the slots"
+#~ msgstr "Aucun créneau de départ pour calculer les créneaux"
+
+#~ msgid "No end slot available to calculate all the slots"
+#~ msgstr "Aucun créneau de fin pour calculer les créneaux"
+
+#~ msgid "Mini Dashboard"
+#~ msgstr "Mini tableau de bord"
+
+#~ msgid "Free (alternative)"
+#~ msgstr "Libre (alternative)"
+
+#~ msgid "Count"
+#~ msgstr "Nombre de fois no-show"
+
+#~ msgid "Firstname"
+#~ msgstr "Prénom"
+
+#~ msgid "Lastname"
+#~ msgstr "Nom"
+
+#~ msgid "No time slot available for this day"
+#~ msgstr "Aucun créneau disponible pour ce jour"
+
+#, php-format
+#~ msgid ""
+#~ "Do you want to cancel the following booking? Booking on %s for %d "
+#~ "participants"
+#~ msgstr ""
+#~ "Vous avez une réservation au Parcours Aquatonic le %s pour %d "
+#~ "participant(s).\n"
+#~ "<br>\n"
+#~ "Nous vous remercions d’annuler cette réservation en cas d’empêchement."
+
+#, php-format
+#~ msgid "Aquos Error: %s"
+#~ msgstr "Erreur Aquos : %s"
+
+#~ msgctxt "birthdate date format for machines"
+#~ msgid "m/d/y"
+#~ msgstr "d/m/y"
+
+#~ msgctxt "birthdate date format for machines"
+#~ msgid "m/d/Y"
+#~ msgstr "d/m/Y"
+
+#~ msgid "Access the main dashboard"
+#~ msgstr "Accéder au tableau de bord complet"
+
+#~ msgid "Start"
+#~ msgstr "Début"
+
+#~ msgid "New Booking"
+#~ msgstr "Nouvelle réservation"
+
+#~ msgid "Mark as arrived"
+#~ msgstr "Marquer comme arrivé"
+
+#~ msgid "No links found."
+#~ msgstr "Aucun lien trouvé."
+
+#~ msgid "Delete"
+#~ msgstr "Supprimer"
+
+#~ msgctxt "tmsm-aquatonic-course-booking"
+#~ msgid "Firstname"
+#~ msgstr "Prénom"
+
+#~ msgctxt "tmsm-aquatonic-course-booking"
+#~ msgid "Lastname"
+#~ msgstr "Nom"
+
+#, php-format
+#~ msgid "Edit &#8220;%s&#8221;"
+#~ msgstr "Modifier &#8220;%s&#8221;"
+
+#~ msgid "Yes"
+#~ msgstr "Oui"
+
+#~ msgid "No"
+#~ msgstr "Aucun"
+
+#~ msgid "Edit"
+#~ msgstr "Modifier"
+
+#~ msgid "Today's Bookings"
+#~ msgstr "Réservations du jour"
+
+#~ msgid "Timeslots"
+#~ msgstr "Créneaux horaires"
+
+#~ msgid "Barcode"
+#~ msgstr "Code barre"
+
+#~ msgid "Gravity Form"
+#~ msgstr "Gravity Form"
+
+#~ msgid "Published"
+#~ msgstr "Publié"
+
+#~ msgid "Draft"
+#~ msgstr "Brouillon"
+
+#~ msgid "Save"
+#~ msgstr "Enregistrer"
+
+#~ msgid "Title"
+#~ msgstr "Titre"
+
+#~ msgid "Refresh"
+#~ msgstr "Rafraîchir"
+
+#~ msgid "Previous"
+#~ msgstr "Précédent"
+
+#~ msgid "Next"
+#~ msgstr "Suivant"
+
+#~ msgid "TMSM Aquatonic Memberarea Cron Schedule Exists"
+#~ msgstr "La planification de cron de TMSM Aquatonic Memberarea existe"
+
+#~ msgctxt "Issue counter label for the admin menu"
+#~ msgid "Critical issues"
+#~ msgstr "Problèmes critiques"
+
+#~ msgid "Site Health"
+#~ msgstr "Santé du site"
+
+#~ msgid "Web Service Count URL"
+#~ msgstr "URL du web service pour le comptage"
+
+#~ msgid "URL of the Web Service for Count Method"
+#~ msgstr "URL du web service pour le comptage"
+
+#~ msgid "Memberarea Page ID"
+#~ msgstr "ID de la page d’affluence"
+
+#~ msgid "Page ID of the memberarea page"
+#~ msgstr "ID de la page détaillant l’affluence"
+
+#, php-format
+#~ msgid "Tier %s Value"
+#~ msgstr "Valeur du palier %s"
+
+#, php-format
+#~ msgid "Tier %s Color"
+#~ msgstr "Couleur du palier %s"
+
+#~ msgid "Hexadecimal"
+#~ msgstr "Hexadécimal"
+
+#, php-format
+#~ msgid "Tier %s Short Description"
+#~ msgstr "Description courte du palier %s"
+
+#, php-format
+#~ msgid "Tier %s Long Description"
+#~ msgstr "Description longue du palier %s"
+
+#~ msgid "Html accepted."
+#~ msgstr "Html accepté."
+
+#~ msgid "Web Service"
+#~ msgstr "Service web"
+
+#~ msgid "Tiers"
+#~ msgstr "Paliers"
+
+#~ msgid "Performance"
+#~ msgstr "Performance"
+
+#~ msgid ""
+#~ "Cron schedule is not fired, prices will not update from Aquatonic "
+#~ "Memberarea."
+#~ msgstr ""
+#~ "Le cron n’est pas planifié, les prix ne seront pas mis à joue depuis "
+#~ "Aquatonic Memberarea."
+
+#~ msgid "Disable and enable again the plugin"
+#~ msgstr "Désactiver puis activer l’extension"
+
+#, php-format
+#~ msgid "TMSM Aquatonic Memberarea cron is not scheduled on %s"
+#~ msgstr "Le cron de TMSM Aquatonic Memberarea n’est pas planifié sur %s"
+
+#~ msgid "No data available"
+#~ msgstr "Aucune donnée disponible"
+
+#~ msgid "Consumer key"
+#~ msgstr "Clé client"
+
+#~ msgid "Consumer secret"
+#~ msgstr "Secret client"
+
+#~ msgid "Access token"
+#~ msgstr "Token d’accès"
+
+#~ msgid "Token secret"
+#~ msgstr "Secret de token"
+
+#~ msgid "Group ID"
+#~ msgstr "Identifiant du groupe"
+
+#~ msgid "Hotel ID"
+#~ msgstr "Identifiant de l'hôtel"
+
+#~ msgid "Room IDs"
+#~ msgstr "Identifiants de chambre"
+
+#~ msgid "Separated by comma."
+#~ msgstr "Séparé par des virgules."
+
+#~ msgid "Accommodation Rate IDs"
+#~ msgstr "Identifiants de prix de l’établissement"
+
+#~ msgid "OTA Rate IDs"
+#~ msgstr "Identifiants de prix OTA"
+
+#~ msgid "Currency (ISO 4217 code)"
+#~ msgstr "Monnaie (code ISO 4217)"
+
+#~ msgid "Engine (format: name/id/)"
+#~ msgstr "Moteur (format : nom/identifiant/)"
+
+#~ msgid "Intro"
+#~ msgstr "Intro"
+
+#~ msgid "Outro"
+#~ msgstr "Outro"
+
+#~ msgid "Book Button Label"
+#~ msgstr "Libellé du bouton réservation"
+
+#~ msgid "Year Best Price Label"
+#~ msgstr "Libellé du meilleur prix annuel"
+
+#~ msgid "Html accepted. Use % as placeholder for price."
+#~ msgstr "Html accepté. Utilisez % pour afficher le prix."
+
+#~ msgid "Accommodation Price Label"
+#~ msgstr "Libellé du prix de l’établissement"
+
+#~ msgid "OTA Compare Label"
+#~ msgstr "Libellé du prix OTA"
+
+#~ msgid "API"
+#~ msgstr "API"
+
+#~ msgctxt "money format"
+#~ msgid "From %"
+#~ msgstr "À partir de %"
+
+#~ msgid "Compare with the OTA: %"
+#~ msgstr "Comparez avec les OTA : %"
+
+#~ msgid "Calendar color for selected date"
+#~ msgstr "Couleur pour la date sélectionnée dans le calendrier"
+
+#~ msgid "Calendar color for range date"
+#~ msgstr "Couleur pour la plage sélectionnée dans le calendrier"
+
+#~ msgid "Calendar best price color"
+#~ msgstr "Couleur pour le meilleur prix dans le calendrier"
+
+#~ msgid "Customize colors"
+#~ msgstr "Personnaliser les couleurs"
+
+#~ msgctxt "price"
+#~ msgid "From"
+#~ msgstr "À partir de"
+
+#~ msgid "Available"
+#~ msgstr "Disponible"
+
+#~ msgid "Lowest price"
+#~ msgstr "Prix le plus bas"
+
+#~ msgid "Last rooms"
+#~ msgstr "Dernières disponibilités"
+
+#~ msgid "Minimum stay"
+#~ msgstr "Durée minimum"
+
+#~ msgctxt "date selection"
+#~ msgid "From"
+#~ msgstr "Du"
+
+#~ msgctxt "date selection"
+#~ msgid "to"
+#~ msgstr "au"
+
+#~ msgid "Minimum stay:"
+#~ msgstr "Durée minimum :"
+
+#~ msgid "Book now"
+#~ msgstr "Réserver maintenant"
+
+#~ msgid "Date is empty"
+#~ msgstr "La date est vide"
+
+#~ msgid "Nights number are empty"
+#~ msgstr "Le nombre de nuit est vide"
+
+#~ msgid "No availability"
+#~ msgstr "Aucune disponibilité"
+
+#~ msgid "Rate IDs (separated by comma)"
+#~ msgstr "Identifiants de tarifs (séparé par des virgules)"
+
+#~ msgid "Accommodation Rate IDs (separated by comma)"
+#~ msgstr "Identifiants de tarifs de l’établissement (séparé par des virgules)"
+
+#~ msgid "OTA Rate IDs (separated by comma)"
+#~ msgstr "Identifiants de tarifs OTA (séparé par des virgules)"
+
+#~ msgid "From %"
+#~ msgstr "À partir de %"
+
+#~ msgid "Total price:"
+#~ msgstr "Prix total :"
+
+#~ msgctxt "money format"
+#~ msgid "From €%.0n"
+#~ msgstr "À partir de %.0n €"
+
+#~ msgctxt "money format"
+#~ msgid "€%.0n"
+#~ msgstr "%.0n €"
+
+#~ msgctxt "price"
+#~ msgid "from"
+#~ msgstr "à partir de"
+
+#~ msgid "To"
+#~ msgstr "Au"
+
+#~ msgid "Checkin"
+#~ msgstr "Arrivée"
+
+#~ msgid "Checkout"
+#~ msgstr "Départ"
+
+#~ msgid "Number of adults:"
+#~ msgstr "Nombre d’adultes :"
+
+#~ msgid "Engine"
+#~ msgstr "Moteur"

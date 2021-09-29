@@ -30,5 +30,4 @@ if ( ! empty( $errors ) && is_array( $errors ) ) {?>
 	do_settings_sections( $this->plugin_name );
 	submit_button( __( 'Save options', 'tmsm-aquatonic-memberarea' ));
 
-	do_action( 'tmsm_aquatonic_memberarea_cronaction' );
 	?></form>

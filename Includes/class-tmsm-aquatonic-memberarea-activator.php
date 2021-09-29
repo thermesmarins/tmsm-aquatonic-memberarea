@@ -31,9 +31,7 @@ class Tmsm_Aquatonic_Memberarea_Activator {
 	 */
 	public static function activate() {
 
-		if ( ! wp_next_scheduled( 'tmsm_aquatonic_memberarea_cronaction' ) ) {
-			wp_schedule_event( time(), 'tmsm_aquatonic_memberarea_refresh_schedule', 'tmsm_aquatonic_memberarea_cronaction' );
-		}
+
 	}
 
 }

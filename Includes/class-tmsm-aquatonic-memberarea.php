@@ -67,8 +67,8 @@ class Tmsm_Aquatonic_Memberarea {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'TMSM_AQUATONIC_ATTENDANCE_VERSION' ) ) {
-			$this->version = TMSM_AQUATONIC_ATTENDANCE_VERSION;
+		if ( defined( 'TMSM_AQUATONIC_MEMBERAREA_VERSION' ) ) {
+			$this->version = TMSM_AQUATONIC_MEMBERAREA_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
@@ -76,7 +76,6 @@ class Tmsm_Aquatonic_Memberarea {
 
 		$this->load_dependencies();
 		$this->set_locale();
-		$this->define_cron_schedule();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
@@ -99,6 +98,11 @@ class Tmsm_Aquatonic_Memberarea {
 	 * @access   private
 	 */
 	private function load_dependencies() {
+
+		/**
+		 * ResaCours API
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ResaCours_API.php';
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -175,25 +179,10 @@ class Tmsm_Aquatonic_Memberarea {
 
 		// Health Check
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'action_admin_menu' );
-		$this->loader->add_filter( 'site_status_tests', $plugin_admin, 'test_cron_schedule_exists' );
 
 	}
 
-	/**
-	 * Define cron
-	 *
-	 * @since    1.0.6
-	 * @access   private
-	 */
-	private function define_cron_schedule() {
-		add_filter('cron_schedules', function($schedules) {
-			$schedules['tmsm_aquatonic_memberarea_refresh_schedule'] = array(
-				'interval' => MINUTE_IN_SECONDS * 5,
-				'display'  => __( 'Every 5 minutes', 'tmsm-aquatonic-memberarea' ),
-			);
-			return $schedules;
-		}, 99);
-	}
+
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality
@@ -209,12 +198,7 @@ class Tmsm_Aquatonic_Memberarea {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
-		$this->loader->add_action( 'wp_footer', $plugin_public, 'badge_template' );
-
-		$this->loader->add_action( 'tmsm_aquatonic_memberarea_cronaction', $plugin_public, 'refresh_memberarea_data' );
-
 		$this->loader->add_action( 'init', $plugin_public, 'register_shortcodes' );
-		$this->loader->add_action( 'wp_update_plugins', $plugin_public, 'check_cron_schedule_exists' );
 
 		$this->loader->add_action( 'wp_ajax_tmsm-aquatonic-memberarea-realtime', $plugin_public, 'ajax_realtime' );
 		$this->loader->add_action( 'wp_ajax_nopriv_tmsm-aquatonic-memberarea-realtime', $plugin_public, 'ajax_realtime' );

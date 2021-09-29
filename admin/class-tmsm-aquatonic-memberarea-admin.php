@@ -88,21 +88,6 @@ class Tmsm_Aquatonic_Memberarea_Admin {
 	}
 
 	/**
-	 * Health Check Test
-	 *
-	 * @param $tests
-	 *
-	 * @return mixed
-	 */
-	function test_cron_schedule_exists( $tests ) {
-		$tests['direct']['tmsm_aquatonic_memberarea'] = array(
-			'label' => __('TMSM Aquatonic Memberarea Cron Schedule Exists', 'tmsm-aquatonic-memberarea'),
-			'test'  => 'tmsm_aquatonic_memberarea_test_schedule_exists',
-		);
-		return $tests;
-	}
-
-	/**
 	 * Add item to the admin menu.
 	 *
 	 * @uses add_dashboard_page()
@@ -248,14 +233,25 @@ class Tmsm_Aquatonic_Memberarea_Admin {
 	public function register_fields() {
 
 		add_settings_field(
-			'webservicecounturl',
+			'webserviceurl',
 			esc_html__( 'Web Service Count URL', 'tmsm-aquatonic-memberarea' ),
 			array( $this, 'field_text' ),
 			$this->plugin_name,
 			$this->plugin_name . '-webservice',
 			array(
 				'description' 	=> __( 'URL of the Web Service for Count Method', 'tmsm-aquatonic-memberarea' ),
-				'id' => 'webservicecounturl',
+				'id' => 'webserviceurl',
+			)
+		);
+
+		add_settings_field(
+			'siteid',
+			esc_html__( 'Aquos Site ID', 'tmsm-aquatonic-memberarea' ),
+			array( $this, 'field_text' ),
+			$this->plugin_name,
+			$this->plugin_name . '-webservice',
+			array(
+				'id' => 'siteid',
 			)
 		);
 
@@ -604,7 +600,8 @@ class Tmsm_Aquatonic_Memberarea_Admin {
 	public static function get_options_list() {
 		$options   = array();
 
-		$options[] = array( 'webservicecounturl', 'text', '' );
+		$options[] = array( 'webserviceurl', 'text', '' );
+		$options[] = array( 'siteid', 'text', '' );
 		$options[] = array( 'pageid', 'text', '' );
 		$options[] = array( 'timeslots', 'textarea', '' );
 		for ($tier = 1; $tier <= 5; $tier++) {
@@ -617,42 +614,4 @@ class Tmsm_Aquatonic_Memberarea_Admin {
 		return $options;
 	}
 
-}
-
-/**
- * Health Check Test
- * @return array
- */
-function tmsm_aquatonic_memberarea_test_schedule_exists() {
-	$result = array(
-		'label'       => __('TMSM Aquatonic Memberarea Cron Schedule Exists', 'tmsm-aquatonic-memberarea'),
-		'status'      => 'good',
-		'badge'       => array(
-			'label' => __( 'Performance' ),
-			'color' => 'green',
-		),
-		'description' => sprintf(
-			'<p>%s</p>',
-			__( 'Cron Schedule is not fired', 'tmsm-aquatonic-memberarea' )
-		),
-		'actions'     => '',
-		'test'        => 'tmsm-aquatonic-memberarea',
-	);
-
-	if ( ! wp_next_scheduled( 'tmsm_aquatonic_memberarea_cronaction' ) ) {
-		$result['status'] = 'critical';
-		$result['badge']['color'] = 'red';
-		$result['label'] = __('TMSM Aquatonic Memberarea Cron Schedule is not added', 'tmsm-aquatonic-memberarea');
-		$result['description'] = sprintf(
-			'<p>%s</p>',
-			__('Cron schedule is not fired, prices will not update from Aquatonic Memberarea.', 'tmsm-aquatonic-memberarea')
-		);
-		$result['actions'] .= sprintf(
-			'<p><a href="%s">%s</a></p>',
-			esc_url( admin_url( 'plugins.php' ) ),
-			__( 'Disable and enable again the plugin', 'tmsm-aquatonic-memberarea' )
-		);
-	}
-
-	return $result;
 }

@@ -30,7 +30,7 @@ class Tmsm_Aquatonic_Memberarea_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-		wp_clear_scheduled_hook('tmsm_aquatonic_memberarea_cronaction');
+
 	}
 
 }

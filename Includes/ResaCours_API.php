@@ -15,6 +15,12 @@ class ResaCours_API {
 	private static $webservice_url = '';
 
 	/**
+	 * Site ID.
+	 * @var string
+	 */
+	private static $site_id = '';
+
+	/**
 	 * Key ID.
 	 * @var string
 	 */
@@ -30,24 +36,9 @@ class ResaCours_API {
 
 	public function __construct() {
 
-		self::$webservice_url = self::get_option('webservice_url');
+		self::$webservice_url = self::get_option('webserviceurl');
+		self::$site_id = intval(self::get_option('siteid'));
 
-	}
-
-	/**
-	 * Set Key ID.
-	 * @param string $key_id
-	 */
-	public static function set_key_id( $key_id ) {
-		self::$key_id = $key_id;
-	}
-
-	/**
-	 * Set API Key.
-	 * @param string $api_key
-	 */
-	public static function set_api_key( $api_key ) {
-		self::$api_key = $api_key;
 	}
 
 	/**
@@ -83,7 +74,8 @@ class ResaCours_API {
 		$app_info   = $user_agent['application'];
 
 		return array(
-				'User-Agent'                 => $app_info['name'] . '/' . $app_info['version'] . ' (' . $app_info['url'] . ')',
+			'User-Agent'   => $app_info['name'] . '/' . $app_info['version'] . ' (' . $app_info['url'] . ')',
+			'Content-Type' => 'application/json; charset=utf-8',
 		);
 	}
 
@@ -110,57 +102,58 @@ class ResaCours_API {
 	/**
 	 * Send the request to ResaCours API
 	 *
-	 * @since 1.0.0
-	 * @param array $request
+	 * @param array $data
 	 * @param string $method
-	 * @return string
-	 * @throws Exception
+	 *
+	 * @return array|WP_Error
+	 * @since 1.0.0
 	 */
-	public static function request( $request, $method = null) {
+	public function request( $data, $method = null) {
 
 		if(empty($method)){
 			error_log( __( 'Method is not configured', 'tmsm-aquotonic-memberarea' ) );
 			throw new Exception( __( 'Method is not configured', 'tmsm-aquotonic-memberarea' ) );
 		}
 
-		$headers         = self::get_headers();
+		$data['id_site'] = self::$site_id;
 
-		$request['AuthKey'] = [
-			'idKey' => self::get_option( 'dialoginsight_idkey' ),
-			'Key'   => self::get_option( 'dialoginsight_apikey' ),
-		];
-
-		//error_log( 'request after:' );
-		//error_log( print_r( $request, true ) );
+		error_log( '$data:' );
+		error_log( print_r( $data, true ) );
+		error_log( 'json_encode($data):' );
+		error_log( json_encode($data) );
 
 		$response = wp_safe_remote_post(
 			self::$webservice_url . '/' . $method,
-			//['data' => $request]
 			array(
-				'headers' => $headers,
-				'body'    => json_encode($request),
-				'timeout' => 70,
+				'headers' => self::get_headers(),
+				'body'    => json_encode($data),
+				'timeout' => 10,
 			)
 		);
+
+		error_log( '$response:' );
+		error_log( print_r( $response, true ) );
 
 		$response_code = wp_remote_retrieve_response_code( $response );
 		$response_data = json_decode( wp_remote_retrieve_body( $response ) );
 
+		error_log( '$response_code:' );
+		error_log( $response_code );
+
 		if(empty($response)){
 			error_log( __( 'Web service is not available', 'tmsm-aquotonic-memberarea' ) );
-			throw new Exception( __( 'Web service is not available', 'tmsm-aquotonic-memberarea' ), wp_remote_retrieve_response_code( $response ) );
+			return new WP_Error( 'webservice_unavailable', __( 'Web service is not available', 'tmsm-aquotonic-memberarea' ) );
 		}
 		else{
 
-			if ( $response_code >= 400 ) {
-				error_log( sprintf( __( 'Error: Delivery URL returned response code: %s', 'tmsm-aquotonic-memberarea' ), absint( $response_code ) ) );
-				throw new Exception( sprintf( __( 'Error: Delivery URL returned response code: %s', 'tmsm-aquotonic-memberarea' ), absint( $response_code ) ), $response_code );
-
+			if ( is_wp_error( $response ) ) {
+				error_log( 'Error message: ' . $response->get_error_message() );
+				return $response;
 			}
 
-			if ( is_wp_error( $response ) ) {
-				error_log('Error message: '. $response->get_error_message());
-				throw new Exception( 'Error message: '. $response->get_error_message(), $response_code );
+			if ( $response_code !== 200 ) {
+				error_log( sprintf( __( 'Error: Delivery URL returned response code: %s', 'tmsm-aquotonic-memberarea' ), absint( $response_code ) ) );
+				return new WP_Error( 'unexpected_http_response_code', sprintf( __( 'Web service error: delivery URL returned response code %s', 'tmsm-aquotonic-memberarea' ), absint( $response_code ) ) );
 			}
 
 			// No errors, success
@@ -172,13 +165,13 @@ class ResaCours_API {
 			// Some error detected
 			else{
 				if ( ! empty( $response_data->error ) ) {
-					error_log( sprintf( __( 'Error code %s', 'tmsm-aquotonic-memberarea' ), $response_data->error) );
-					throw new Exception( sprintf( __( 'Error code %s', 'tmsm-aquotonic-memberarea' ), $response_data->error ), wp_remote_retrieve_response_code( $response ) );
+					error_log( sprintf( __( 'Web service error message: %s', 'tmsm-aquotonic-memberarea' ), $response_data->error ) );
+					return new WP_Error( 'webservice_error', sprintf( __( 'Web service error message: %s', 'tmsm-aquotonic-memberarea' ), $response_data->error ) );
 				}
 			}
 		}
 
-		return $response_data;
+		return $response_data->data;
 	}
 
 

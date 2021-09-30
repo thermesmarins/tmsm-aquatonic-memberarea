@@ -163,6 +163,128 @@ class Tmsm_Aquatonic_Memberarea_Public {
 
 	}
 
+	/**
+	 * Authenticate a user
+	 *
+	 * @link https://offshorly.com/news/sso-wordpress-authentication-using-external-api/
+	 * @link https://ben.lobaugh.net/blog/7175/wordpress-replace-built-in-user-authentication#What_to_keep_in_mind_when_replacing_the_built-in_authentication
+	 * @link https://wordpress.stackexchange.com/a/269218
+	 *
+	 * @param null|WP_User|WP_Error $user     User data
+	 * @param string                $email User login entered
+	 * @param string                $password Password entered
+	 *
+	 * @return null|WP_User|WP_Error User or Error
+	 * @throws Exception
+	 */
+	public function authenticate($user, $email, $password) {
+
+		$id_customer = null;
+		$first_connection = true;
+
+		error_log(print_r($_POST, true));
+
+		// Login into web service if form action is tmsm-aquatonic-memberarea-login
+		if ( isset($_POST['action']) && $_POST['action'] === 'tmsm-aquatonic-memberarea-login' ) {
+
+			// Connect to API
+			$api      = new ResaCours_API();
+			$data     = [
+				'email'    => sanitize_text_field($email),
+				'password' => bin2hex( sanitize_text_field( $password ) ),
+			];
+			$response = $api->request( $data, 'connectioncustomer' );
+
+			// Web service customer error
+			if ( is_wp_error( $response ) ) {
+				error_log('Customer authentication error');
+				return $response;
+			}
+			// Web service customer exists
+			else {
+				error_log('Customer authentication success');
+				$id_customer      = intval($response[0]->id_customer);
+				$first_connection = $response[0]->first_connection;
+
+				// Check if customer ID defined
+				if( ! empty($id_customer)){
+
+					// Get customer info
+					$customer = $this->get_customer($id_customer);
+
+					// Check if a user exists with same email
+					$user = get_user_by('user_email', $email);
+
+					// User exists
+					if ( $user instanceof WP_User ) {
+						error_log('WP user exists: use it');
+					}
+					else{
+						error_log('WP user doesnt exist: create it');
+
+						$userdata = array(
+							'user_email' => $email,
+							'user_login' => $email,
+							'user_pass'  => $password,
+							'first_name' => $customer->firstname,
+							'last_name'  => $customer->lastname,
+						);
+						if(class_exists('WooCommerce')){
+							$userdata['role'] = 'customer';
+						}
+						$user_id = wp_insert_user( $userdata ); // A new user has been created
+
+						if ( ! is_wp_error( $user_id ) ) { // check if insert was successful
+							$user = new WP_User( $user_id );
+							update_user_option( $user_id, '_aquos_created', 1, false );
+						}
+
+					}
+
+					// WP User add meta
+					update_user_option( $user->ID, '_aquos_subscribercard', $customer->subscriber_card, false );
+					update_user_option( $user->ID, '_aquos_id', $id_customer, false );
+
+
+					// Log user
+					wp_set_current_user( $user->ID, $user->user_login );
+					wp_set_auth_cookie( $user->ID, true );
+
+					do_action( 'wp_login', $user->user_login, $user );
+				}
+				else{
+					error_log('Customer ID not defined');
+				}
+
+
+			}
+
+		}
+
+		return $user;
+	}
+
+	/**
+	 * Get Customer with API
+	 *
+	 * @param int $id_customer
+	 *
+	 * @return array|mixed|WP_Error
+	 * @throws Exception
+	 */
+	private function get_customer(int $id_customer){
+		$api      = new ResaCours_API();
+		$data     = [
+			'id_customer'    => $id_customer,
+		];
+		$response = $api->request( $data, 'getcustomer' );
+
+		if ( is_wp_error( $response ) ) {
+			return $response;
+		} else {
+			return $response[0];
+		}
+	}
 
 	/**
 	 * Login Page
@@ -177,41 +299,38 @@ class Tmsm_Aquatonic_Memberarea_Public {
 		$id_customer = null;
 		$first_connection = true;
 
-		/*
-		    Email : tdavid@thalasso-saintmalo.com
-			Numéro de carte : P00000006103
-			ID client : 115365
-			Mot de passe : test12345678
-			Abonnement illimité salle et piscine
-		 */
+		session_start();
 
-		// Check security
-		if ( $_POST
-		    &&
-		    ( ! isset( $_POST['tmsm_aquatonic_memberarea_nonce'] )
-			|| ! wp_verify_nonce( $_POST['tmsm_aquatonic_memberarea_nonce'], 'tmsm_aquatonic_memberarea_login' ) )
-		) {
-			$error = __( 'Operation not authorized', 'tmsm-aquatonic-memberarea' );
-		}
-		// Security OK
-		if ( $_POST && ! $error ) {
+		// Form submitted
+		if ( isset( $_POST['login'], $_POST['email'], $_POST['password'] ) ) {
 
-			$api      = new ResaCours_API();
-			$data     = [
-				'email'    => sanitize_email( $_POST['email'] ),
-				'password' => bin2hex( sanitize_text_field( $_POST['password'] ) ),
-			];
-			$response = $api->request( $data, 'connectioncustomer' );
+			// Security OK
+			if( wp_verify_nonce( $_REQUEST['tmsm_aquatonic_memberarea_nonce'], 'tmsm_aquatonic_memberarea_login' ) ) {
+				$api      = new ResaCours_API();
+				$data     = [
+					'email'    => sanitize_email( $_POST['email'] ),
+					'password' => bin2hex( sanitize_text_field( $_POST['password'] ) ),
+				];
+				$response = $api->request( $data, 'connectioncustomer' );
 
-			if ( is_wp_error( $response ) ) {
-				$error = $response->get_error_message();
-			} else {
-				$id_customer      = $response[0]->id_customer;
-				$first_connection = $response[0]->first_connection;
+				if ( is_wp_error( $response ) ) {
+					$error = $response->get_error_message();
+				} else {
+					$id_customer      = $response[0]->id_customer;
+					$first_connection = $response[0]->first_connection;
+
+
+					$_SESSION['tmsm-aquatonic-memberarea'] = ['id_customer' => $id_customer];
+				}
 			}
-
+			else{
+				$error = __( 'Operation not authorized', 'tmsm-aquatonic-memberarea' );
+			}
 		}
 
+
+		print_r('_SESSION:');
+		print_r($_SESSION);
 		// Form
 		$form = '';
 
@@ -223,7 +342,7 @@ class Tmsm_Aquatonic_Memberarea_Public {
 			$form .= '<div class="alert alert-success"><p><strong>'.esc_html__('Customer ID:', 'tmsm-aquatonic-memberarea').'</strong> '.esc_html($id_customer).'</p></div>';
 		}
 
-		$form .= '
+		$form .= self::logged_customer().'
 				<form class="tmsm-aquatonic-memberarea-login-form form-horizontal" method="post">
 
 					<div class="form-group">
@@ -265,10 +384,47 @@ class Tmsm_Aquatonic_Memberarea_Public {
 				</form>
 		';
 
-		$output = '<div id="tmsm-aquatonic-memberarea-login" class="tmsm-aquatonic-memberarea-container">'. $form.'</div>';
+		/*$output = '<div id="tmsm-aquatonic-memberarea-login" class="tmsm-aquatonic-memberarea-container">' . wp_login_form( [ 'echo'    => false,		                                                                                                                     'form_id' => 'tmsm-aquatonic-memberarea-login',
+			] ) . '</div>';*/
+
+		$output = '<div id="tmsm-aquatonic-memberarea-login" class="tmsm-aquatonic-memberarea-container">' . $form . '</div>';
 		return $output;
 	}
 
+
+	/*
+	 * Override Login Form bottom
+	 *
+	 * @param string $login_form_bottom
+	 * @param array $args
+	 *
+	 * @return string
+	 */
+	public function login_form_bottom( $content, array $args): string{
+		if($args['form_id'] === 'tmsm-aquatonic-memberarea-login'){
+			$content .= '<input type="hidden" name="action" value="tmsm-aquatonic-memberarea-login" />';
+		}
+		return $content;
+	}
+
+	/**
+	 * Display logged in user info
+	 *
+	 * @return string
+	 */
+	private function logged_customer() {
+		$output = '';
+
+		if(isset($_SESSION['tmsm-aquatonic-memberarea']['id_customer'])){
+			$output = esc_html(sprintf(__('Logged in customer %s', 'tmsm-aquatonic-memberarea'), $_SESSION['tmsm-aquatonic-memberarea']['id_customer']));
+
+		}
+		else{
+			$output = esc_html__('You are not logged in', 'tmsm-aquatonic-memberarea');
+		}
+
+		return '<div id="tmsm-aquatonic-memberarea-loggedin">'. $output.'</div>';
+	}
 
 	/**
 	 * Send a response to ajax request, as JSON.

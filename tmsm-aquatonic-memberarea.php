@@ -16,12 +16,12 @@
  * Plugin Name:       TMSM Aquatonic Memberarea
  * Plugin URI:        https://github.com/thermesmarins/tmsm-aquatonic-memberarea
  * Description:       Display Aquatonic Memberarea daily prices (best price) in a calendar view
- * Version:           1.1.6
+ * Version:           0.0.1
  * Author:            Nicolas Mollet
  * Author URI:        https://github.com/nicomollet
- * Requires PHP:      5.6
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Requires PHP:      7.4
+ * License:           GPL-3.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       tmsm-aquatonic-memberarea
  * Domain Path:       /languages
  * Github Plugin URI: https://github.com/thermesmarins/tmsm-aquatonic-memberarea
@@ -38,7 +38,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'TMSM_AQUATONIC_MEMBERAREA_VERSION', '1.0.0' );
+define( 'TMSM_AQUATONIC_MEMBERAREA_VERSION', '0.0.1' );
 
 /**
  * The code that runs during plugin activation.

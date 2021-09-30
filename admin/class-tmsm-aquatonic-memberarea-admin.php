@@ -87,47 +87,6 @@ class Tmsm_Aquatonic_Memberarea_Admin {
 
 	}
 
-	/**
-	 * Add item to the admin menu.
-	 *
-	 * @uses add_dashboard_page()
-	 * @uses __()
-	 *
-	 * @return void
-	 */
-	public function action_admin_menu() {
-		$critical_issues = 0;
-		$issue_counts    = get_transient( 'health-check-site-status-result' );
-
-		if ( false !== $issue_counts ) {
-			$issue_counts = json_decode( $issue_counts );
-
-			$critical_issues = absint( $issue_counts->critical );
-		}
-
-		$critical_count = sprintf(
-			'<span class="update-plugins count-%d"><span class="update-count">%s</span></span>',
-			esc_attr( $critical_issues ),
-			sprintf(
-				'%d<span class="screen-reader-text"> %s</span>',
-				esc_html( $critical_issues ),
-				esc_html_x( 'Critical issues', 'Issue counter label for the admin menu', 'health-check' )
-			)
-		);
-
-		$menu_title = __( 'Site Health' ) . ' '.( ! $issue_counts || $critical_issues < 1 ? '' : $critical_count );
-
-		remove_submenu_page( 'tools.php', 'site-health.php' );
-
-		add_submenu_page(
-			'tools.php',
-			__( 'Site Health' ),
-			$menu_title,
-			'view_site_health_checks',
-			'site-health.php'
-		);
-	}
-
 
 	/**
 	 * Register the Settings page.
